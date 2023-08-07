@@ -1019,7 +1019,9 @@ local function WithStyle(style,pattern)
 end
 local Escape =
   P(piton_begin_escape)
+  * Lc ("\\ensuremath{")
   * L ( ( 1 - P(piton_end_escape) ) ^ 1 )
+  * Lc ("}")
   * P(piton_end_escape)
 lpeg.locale(lpeg)
 local alpha, digit = lpeg.alpha, lpeg.digit
